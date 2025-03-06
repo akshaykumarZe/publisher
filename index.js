@@ -16,6 +16,8 @@ const producer = kafka.producer();
 const topic = process.env.KAFKA_TOPIC;
 const text = process.env.PUBLISH_TEXT;
 const number = process.env.PUBLISH_NUMBER;
+const id=5;
+const place ="Bangalore";
 
 // Function to publish a message to Kafka
 const publishMessage = async () => {
@@ -27,7 +29,9 @@ const publishMessage = async () => {
         setInterval(async () => {
             const message = {
                 text: text,
-                number: Number(number)
+                number: Number(number),
+                id:id,
+                place:place
             };
 
             await producer.send({
